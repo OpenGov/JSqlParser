@@ -22,6 +22,7 @@
 package net.sf.jsqlparser.expression;
 
 import net.sf.jsqlparser.expression.operators.relational.ExpressionList;
+import net.sf.jsqlparser.genericClass;
 import net.sf.jsqlparser.parser.ASTNodeAccessImpl;
 
 /**
@@ -36,6 +37,8 @@ public class Function extends ASTNodeAccessImpl implements Expression {
     private boolean isEscaped = false;
     private String attribute;
     private KeepExpression keep = null;
+
+    private Expression customExpression;
 
     @Override
     public void accept(ExpressionVisitor expressionVisitor) {
@@ -124,6 +127,15 @@ public class Function extends ASTNodeAccessImpl implements Expression {
         this.keep = keep;
     }
 
+
+    public Expression customExpression() {
+        return customExpression;
+    }
+
+    public void setCustomExpression( Expression customExpression) {
+        this.customExpression = customExpression;
+    }
+
     @Override
     public String toString() {
         String params;
@@ -155,6 +167,24 @@ public class Function extends ASTNodeAccessImpl implements Expression {
             ans = "{fn " + ans + "}";
         }
 
+        if (customExpression != null) {
+            ans = customExpression.toString();
+        }
+
         return ans;
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
+
 }

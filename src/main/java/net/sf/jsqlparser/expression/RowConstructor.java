@@ -22,6 +22,7 @@
 package net.sf.jsqlparser.expression;
 
 import net.sf.jsqlparser.expression.operators.relational.ExpressionList;
+import net.sf.jsqlparser.genericClass;
 
 /**
  * Rowconstructor.
@@ -61,4 +62,17 @@ public class RowConstructor implements Expression {
     public String toString() {
         return (name != null ? name : "") + exprList.toString();
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

@@ -21,6 +21,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  *
  * @author wumpz
@@ -55,4 +57,18 @@ public class IntervalExpression implements Expression {
     public void accept(ExpressionVisitor expressionVisitor) {
         expressionVisitor.visit(this);
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
+
 }

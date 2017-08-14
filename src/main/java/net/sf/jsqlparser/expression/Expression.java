@@ -21,7 +21,12 @@
  */
 package net.sf.jsqlparser.expression;
 
+import java.util.*;
+
 public interface Expression {
+
+    void setLogicalType(Object expression);
+    Object getLogicalType();
 
     void accept(ExpressionVisitor expressionVisitor);
 }

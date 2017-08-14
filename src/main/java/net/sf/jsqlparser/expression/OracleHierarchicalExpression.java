@@ -21,6 +21,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  *
  * @author toben
@@ -92,5 +94,17 @@ public class OracleHierarchicalExpression implements Expression {
             b.append(connectExpression.toString());
         }
         return b.toString();
+    }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
     }
 }

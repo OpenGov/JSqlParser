@@ -23,6 +23,7 @@ package net.sf.jsqlparser.expression.operators.relational;
 
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.ExpressionVisitor;
+import net.sf.jsqlparser.genericClass;
 
 public class InExpression implements Expression, SupportsOldOracleJoinSyntax {
 
@@ -111,4 +112,17 @@ public class InExpression implements Expression, SupportsOldOracleJoinSyntax {
             throw new IllegalArgumentException("unexpected prior for oracle found");
         }
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

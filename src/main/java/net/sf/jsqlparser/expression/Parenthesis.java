@@ -21,6 +21,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  * It represents an expression like "(" expression ")"
  */
@@ -61,4 +63,17 @@ public class Parenthesis implements Expression {
     public String toString() {
         return (not ? "NOT " : "") + "(" + expression + ")";
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

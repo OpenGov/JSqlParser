@@ -21,6 +21,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  * Extract value from date/time expression. The name stores the part - name to get from the
  * following date/time expression.
@@ -57,4 +59,17 @@ public class ExtractExpression implements Expression {
     public String toString() {
         return "EXTRACT(" + name + " FROM " + expression + ')';
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

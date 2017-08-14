@@ -23,6 +23,7 @@ package net.sf.jsqlparser.expression.operators.relational;
 
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.ExpressionVisitor;
+import net.sf.jsqlparser.genericClass;
 
 public class IsNullExpression implements Expression {
 
@@ -54,4 +55,18 @@ public class IsNullExpression implements Expression {
     public String toString() {
         return leftExpression + " IS " + (not ? "NOT " : "") + "NULL";
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
+
 }

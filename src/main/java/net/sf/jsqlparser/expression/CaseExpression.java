@@ -23,6 +23,7 @@ package net.sf.jsqlparser.expression;
 
 import java.util.List;
 
+import net.sf.jsqlparser.genericClass;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 
 /**
@@ -115,4 +116,18 @@ public class CaseExpression implements Expression {
                 + PlainSelect.getStringList(whenClauses, false, false) + " "
                 + ((elseExpression != null) ? "ELSE " + elseExpression + " " : "") + "END";
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
+
 }

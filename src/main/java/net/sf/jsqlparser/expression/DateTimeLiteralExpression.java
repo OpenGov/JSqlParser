@@ -39,6 +39,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  *
  * @author toben
@@ -77,4 +79,17 @@ public class DateTimeLiteralExpression implements Expression {
     public static enum DateTime {
         DATE, TIME, TIMESTAMP;
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

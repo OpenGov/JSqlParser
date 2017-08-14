@@ -21,6 +21,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  * A basic class for binary expressions, that is expressions having a left member and a right member
  * which are in turn expressions.
@@ -30,8 +32,7 @@ public abstract class BinaryExpression implements Expression {
     private Expression leftExpression;
     private Expression rightExpression;
     private boolean not = false;
-    
-    
+    public genericClass logicalType = new genericClass();
     
     public BinaryExpression() {
     }
@@ -70,5 +71,16 @@ public abstract class BinaryExpression implements Expression {
     }
 
     public abstract String getStringExpression();
-    
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
+
 }

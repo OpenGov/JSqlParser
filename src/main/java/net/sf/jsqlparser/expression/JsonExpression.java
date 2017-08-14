@@ -23,6 +23,8 @@ package net.sf.jsqlparser.expression;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import net.sf.jsqlparser.genericClass;
 import net.sf.jsqlparser.schema.Column;
 
 /**
@@ -78,4 +80,17 @@ public class JsonExpression implements Expression {
         }
         return b.toString();
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

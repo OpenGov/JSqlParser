@@ -31,7 +31,6 @@ public class SelectExpressionItem implements SelectItem {
 
     private Expression expression;
     private Alias alias;
-
     public SelectExpressionItem() {
     }
 
@@ -65,3 +64,4 @@ public class SelectExpressionItem implements SelectItem {
         return expression + ((alias != null) ? alias.toString() : "");
     }
 }
+

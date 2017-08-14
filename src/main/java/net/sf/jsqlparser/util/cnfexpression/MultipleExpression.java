@@ -26,6 +26,7 @@ import java.util.List;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.ExpressionVisitor;
 import net.sf.jsqlparser.expression.NullValue;
+import net.sf.jsqlparser.genericClass;
 
 /**
  * This is a helper class that mainly used for handling the CNF conversion.
@@ -88,5 +89,18 @@ public abstract class MultipleExpression implements Expression {
         sb.append(")");
         return sb.toString();
     }
-    
+
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

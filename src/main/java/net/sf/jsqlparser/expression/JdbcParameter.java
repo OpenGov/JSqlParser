@@ -21,6 +21,8 @@
  */
 package net.sf.jsqlparser.expression;
 
+import net.sf.jsqlparser.genericClass;
+
 /**
  * A '?' in a statement or a ?<number> e.g. ?4
  */
@@ -62,4 +64,17 @@ public class JdbcParameter implements Expression {
     public String toString() {
         return useFixedIndex ? "?" + index : "?";
     }
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 }

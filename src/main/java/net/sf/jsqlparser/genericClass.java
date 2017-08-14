@@ -19,28 +19,15 @@
  * <http://www.gnu.org/licenses/lgpl-2.1.html>.
  * #L%
  */
-package net.sf.jsqlparser.util.cnfexpression;
+package net.sf.jsqlparser;
 
-import java.util.List;
 
-import net.sf.jsqlparser.expression.Expression;
-
-/**
- * This helper class is mainly used for handling the CNF conversion.
- * @author messfish
- *
- */
-public final class MultiOrExpression extends MultipleExpression {
-
-    public MultiOrExpression(List<Expression> childlist) {
-        super(childlist);
+public class genericClass<T> {
+    T genericObject;
+    public void setLogicalType(T logicalType){
+        genericObject = logicalType;
     }
-
-    @Override
-    public String getStringExpression() {
-        return "OR";
+    public T getLogicalType() {
+        return genericObject;
     }
-
-    
-
 }

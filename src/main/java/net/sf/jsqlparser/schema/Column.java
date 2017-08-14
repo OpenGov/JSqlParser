@@ -22,6 +22,7 @@
 package net.sf.jsqlparser.schema;
 
 import net.sf.jsqlparser.expression.*;
+import net.sf.jsqlparser.genericClass;
 import net.sf.jsqlparser.parser.ASTNodeAccessImpl;
 
 /**
@@ -31,6 +32,19 @@ public final class Column extends ASTNodeAccessImpl implements Expression, Multi
 
     private Table table;
     private String columnName;
+
+    public genericClass logicalType = new genericClass();
+
+    @Override
+    public void setLogicalType(Object inputLogicalType) {
+        logicalType.setLogicalType(inputLogicalType);
+    }
+
+    @Override
+    public Object getLogicalType() {
+        return logicalType.getLogicalType();
+    }
+
 
     public Column() {
     }
